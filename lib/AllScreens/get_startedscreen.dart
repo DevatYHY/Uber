@@ -18,14 +18,16 @@ class GetStartedscreen extends StatelessWidget {
           right: 50,
           bottom: 60,
         ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              buildTitle(),
-              SizedBox(height: 20.0),
-              Expanded(child: buildContent(),),
-              buildBottom(context),
-            ],
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(child: buildTitle()),
+                SizedBox(height: 20.0),
+                Expanded(child: buildContent(),),
+                Center(child: buildBottom(context)),
+              ],
+            ),
           )
         ),
     );
@@ -41,8 +43,7 @@ class GetStartedscreen extends StatelessWidget {
         ),);
   }
   Widget buildContent(){
-    return SingleChildScrollView(
-      child: Column(
+    return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SingleChildScrollView(
@@ -52,7 +53,7 @@ class GetStartedscreen extends StatelessWidget {
             ),
           ),
       ],
-      ),
+      
     );
   }
 
@@ -72,15 +73,15 @@ class GetStartedscreen extends StatelessWidget {
                 Text('Get Started   ➡',style: TextStyle(
                   color: Colors.white,
                   fontFamily: "Uber Move",
-                  fontSize: 14,
+                  fontSize: 15,
                 )),
               ],
             ),
           ),
         ),
-        SizedBox(
-          height: 20,
-        ),
+        // SizedBox(
+        //   height: 20,
+        // ),
       ],
     );
   }

@@ -1,39 +1,39 @@
 {
-    "project_info": {
-      "project_number": "16321099558",
-      "project_id": "uber-dff95",
-      "storage_bucket": "uber-dff95.appspot.com"
-    },
-    "client": [
-      {
-        "client_info": {
-          "mobilesdk_app_id": "1:16321099558:android:67e9a4d9b4c220cebaf3e7",
-          "android_client_info": {
-            "package_name": "om.example.uber"
-          }
-        },
-        "oauth_client": [
-          {
-            "client_id": "16321099558-ssfriccgjc638g90e1r34ep37gcglp5s.apps.googleusercontent.com",
-            "client_type": 3
-          }
-        ],
-        "api_key": [
-          {
-            "current_key": "AIzaSyCkcYQl39jMUtRc1uBe0n2EcabD0eaHftI"
-          }
-        ],
-        "services": {
-          "appinvite_service": {
-            "other_platform_oauth_client": [
-              {
-                "client_id": "16321099558-ssfriccgjc638g90e1r34ep37gcglp5s.apps.googleusercontent.com",
-                "client_type": 3
-              }
-            ]
-          }
+  "project_info": {
+    "project_number": "26068315970",
+    "project_id": "uber-taxi-afb61",
+    "storage_bucket": "uber-taxi-afb61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:26068315970:android:24202766fd49272d56a2db",
+        "android_client_info": {
+          "package_name": "com.archishman.uber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "26068315970-pupk840ahjpdpjm42gojgach70r7h81j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB40adZ_Wz48rmqB04yKXAgMOp_a9hU8w0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "26068315970-pupk840ahjpdpjm42gojgach70r7h81j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
-    ],
-    "configuration_version": "1"
-  }
+    }
+  ],
+  "configuration_version": "1"
+}
