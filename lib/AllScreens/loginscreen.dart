@@ -5,6 +5,7 @@ import 'package:uber/AllScreens/mainscreen.dart';
 import 'package:uber/AllScreens/registrationscreen.dart';
 import 'package:uber/main.dart';
 import 'package:uber/util/history.dart';
+import 'package:uber/widgets/authentication_bar.dart';
 import 'package:uber/widgets/rectangle_button.dart';
 
 class LoginScreeen extends StatelessWidget {
@@ -62,6 +63,7 @@ class LoginScreeen extends StatelessWidget {
                     fontSize: 20.0,
                   ),
                   hintText: "Email",
+                  icon: Icon(Icons.email),
                   hintStyle: TextStyle(
                     fontSize: 12.0,
                     color: Colors.grey,
@@ -84,6 +86,7 @@ class LoginScreeen extends StatelessWidget {
                     fontSize: 20.0,
                   ),
                   hintText: "Password",
+                  icon: Icon(Icons.lock),
                   hintStyle: TextStyle(
                     fontSize: 16.0,
                     color: Colors.grey,
@@ -99,7 +102,6 @@ class LoginScreeen extends StatelessWidget {
                 onPressed:(){
                   if(!emailTextEditingController.text.contains("@")){
                     displayToastMessage("incorrect email",context);
-
                   }
                   else if(passwordTextEditingController.text.length <9){
                     displayToastMessage("Password Incorrect",context);
@@ -138,11 +140,21 @@ class LoginScreeen extends StatelessWidget {
 
   final FirebaseAuth _firebaseAuth=FirebaseAuth.instance;
   void loginAndAuthenticateUser(BuildContext context) async {
+
+    showDialog(
+      context:context,
+      barrierDismissible: false,
+      builder: (BuildContext context){
+        return AuthBar(message: "Authenticating, please wait");
+      }
+    );
+
     final User firebaseUser=(await _firebaseAuth
    .signInWithEmailAndPassword(
       email: emailTextEditingController.text,
       password: passwordTextEditingController.text,
       ).catchError((errMsg){
+        Navigator.pop(context);
         displayToastMessage("Error: "+errMsg.toString(),context);
       })).user;
 
@@ -154,14 +166,14 @@ class LoginScreeen extends StatelessWidget {
                 displayToastMessage("Successfully LoggedIn", context);
             }
             else{
+              Navigator.pop(context);
               _firebaseAuth.signOut();
               displayToastMessage("Create new account", context);
             }
           });
-          
       }
         else{
-         // error
+         Navigator.pop(context);
           displayToastMessage("Error! Cannot Sign in",context);
       }
 

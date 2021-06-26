@@ -4,6 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:uber/AllScreens/mainscreen.dart';
 import 'package:uber/main.dart';
 import 'package:uber/util/history.dart';
+import 'package:uber/widgets/authentication_bar.dart';
 import 'package:uber/widgets/rectangle_button.dart';
 
 import 'loginscreen.dart';
@@ -34,8 +35,8 @@ class RegisterScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: Image(
                 image: AssetImage("images/logo_main.png"), 
-                width: 200.0, 
-                height: 200.0, 
+                width: 150.0, 
+                height: 150.0, 
                 alignment: Alignment.centerRight,
                 ),
               ),
@@ -62,9 +63,10 @@ class RegisterScreen extends StatelessWidget {
                   decoration: InputDecoration(
                   labelText: "Name",
                   labelStyle: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 16.0,
                   ),
                   hintText: "Name",
+                  icon:Icon(Icons.person),
                   hintStyle: TextStyle(
                     fontSize: 12.0,
                     color: Colors.grey,
@@ -79,9 +81,10 @@ class RegisterScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Email",
                   labelStyle: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 16.0,
                   ),
                   hintText: "Email",
+                  icon:Icon(Icons.email),
                   hintStyle: TextStyle(
                     fontSize: 16.0,
                     color: Colors.grey,
@@ -98,9 +101,10 @@ class RegisterScreen extends StatelessWidget {
                   decoration: InputDecoration(
                   labelText: "Phone",
                   labelStyle: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 16.0,
                   ),
                   hintText: "Phone",
+                  icon:Icon(Icons.phone),
                   hintStyle: TextStyle(
                     fontSize: 12.0,
                     color: Colors.grey,
@@ -116,9 +120,10 @@ class RegisterScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   labelText: "Password",
                   labelStyle: TextStyle(
-                    fontSize: 20.0,
+                    fontSize: 16.0,
                   ),
                   hintText: "Password",
+                  icon:Icon(Icons.lock),
                   hintStyle: TextStyle(
                     fontSize: 16.0,
                     color: Colors.grey,
@@ -128,9 +133,8 @@ class RegisterScreen extends StatelessWidget {
                   fontSize: 12.0,
                 )
               ),
-              SizedBox(height: 15.0),
+              SizedBox(height: 45.0),
               RectangleButton(
-                
                 color: Colors.black,
                 onPressed:(){
                   if(nameTextEditingController.text.length<3){
@@ -156,7 +160,7 @@ class RegisterScreen extends StatelessWidget {
                 "Create Account",
                 style: TextStyle(
                   fontFamily: "Uber Move",
-                  fontSize: 14.0,
+                  fontSize: 15.0,
                   color: Colors.white,
                 ),
               ),  
@@ -182,11 +186,22 @@ class RegisterScreen extends StatelessWidget {
 
   final FirebaseAuth _firebaseAuth=FirebaseAuth.instance;
   void registerNewUser(BuildContext context) async {
+
+    showDialog(
+      context:context,
+      barrierDismissible: false,
+      builder: (BuildContext context){
+        return AuthBar(message: "Registering, please wait");
+      }
+    );
+
+
     final User firebaseUser=(await _firebaseAuth.
     createUserWithEmailAndPassword(
       email: emailTextEditingController.text,
       password: passwordTextEditingController.text,
       ).catchError((errMsg){
+        Navigator.pop(context);
         displayToastMessage("Error: "+errMsg.toString(),context);
       })).user;
 
@@ -204,7 +219,7 @@ class RegisterScreen extends StatelessWidget {
           History.pushPageReplacement(context, MainScreen());
       }
         else{
-         // error
+         Navigator.pop(context);
           displayToastMessage("New User account has not created ",context);
       }
   }

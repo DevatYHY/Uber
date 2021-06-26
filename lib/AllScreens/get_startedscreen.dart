@@ -9,7 +9,6 @@ class GetStartedscreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue,
-      
         body: Center(
           child: Container(
             alignment: Alignment.center,
@@ -22,10 +21,9 @@ class GetStartedscreen extends StatelessWidget {
             child: Center(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-
                 children: [
                   Center(child: buildTitle()),
-                  //SizedBox(height: 20.0),
+                  SizedBox(height: 40.0),
                   Center(child: buildContent(),),
                   Expanded(child: Center(child: buildMiddle())),
                   SizedBox(height: 10.0),
