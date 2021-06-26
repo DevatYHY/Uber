@@ -5,6 +5,8 @@ Uber Technologies, Inc., commonly known as Uber, is an American technology compa
 Description of Uber in a single sentence: Uber, the world’s largest taxi company. <br>
 More about them [here](https://en.wikipedia.org/wiki/Uber)
 
-## Technologies Useda
+## Technologies Used
   👉 Flutter <br>
   👉 Firebase
+## How Uber Works?
+![System Design](https://user-images.githubusercontent.com/71402528/123502881-1f4f4480-d66d-11eb-9a80-3aa934217657.jpg)
