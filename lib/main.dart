@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uber/AllScreens/get_startedscreen.dart';
 import 'package:uber/AllScreens/loginscreen.dart';
 import 'package:uber/AllScreens/mainscreen.dart';
@@ -12,9 +13,19 @@ void main() async{
   runApp(MyApp());
 }
 DatabaseReference usersRef=FirebaseDatabase.instance.reference().child("users");
+//  String finalEmail;
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+  // Future getValidationData() async{
+  //   final SharedPreferences sharedPreferences=await SharedPreferences.getInstance();
+  //   var obtainEmail=sharedPreferences.getString('email');
+  //   setState((){
+  //     finalEmail= obtainEmail;
+  //   });
+  //   print(finalEmail);
+  // }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

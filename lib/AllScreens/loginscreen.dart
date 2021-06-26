@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uber/AllScreens/mainscreen.dart';
 import 'package:uber/AllScreens/registrationscreen.dart';
 import 'package:uber/main.dart';
@@ -8,13 +10,25 @@ import 'package:uber/util/history.dart';
 import 'package:uber/widgets/authentication_bar.dart';
 import 'package:uber/widgets/rectangle_button.dart';
 
-class LoginScreeen extends StatelessWidget {
+class LoginScreeen extends StatefulWidget {
   //const LoginScreeen({ Key? key }) : super(key: key);
+  static const String idScreen="LoginScreen";
+  @override
+  State<LoginScreeen> createState() => _LoginScreeenState();
+}
 
+class _LoginScreeenState extends State<LoginScreeen> {
   TextEditingController emailTextEditingController=TextEditingController();
   TextEditingController passwordTextEditingController=TextEditingController();
 
-  static const String idScreen="LoginScreen";
+  SharedPreferences logindata;
+  bool newuser;
+
+  @override
+  void initState(){
+    super.initState();
+    check_if_already_login();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +113,19 @@ class LoginScreeen extends StatelessWidget {
               SizedBox(height: 150.0),
               RectangleButton(
                 color: Colors.black,
-                onPressed:(){
+                onPressed:() async{
+                // final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+                // sharedPreferences.setString('email',emailTextEditingController.text);
+                // Get.to(MainScreen());
+                String email= emailTextEditingController.text;
+                String password= passwordTextEditingController.text;
+
+                if(email !='' && password !=''){
+                  print('Success');
+                  logindata.setBool('login', false);
+                  logindata.setString('email',email);
+                  History.pushPageReplacement(context, MainScreen());
+                }
                   if(!emailTextEditingController.text.contains("@")){
                     displayToastMessage("incorrect email",context);
                   }
@@ -138,9 +164,23 @@ class LoginScreeen extends StatelessWidget {
     );
   }
 
+  void check_if_already_login() async{
+    logindata=await SharedPreferences.getInstance();
+    newuser=(logindata.getBool('login')??true);
+    print(newuser);
+    if(newuser==false){
+      History.pushPageReplacement(context,MainScreen());
+    }
+  }
+
+  @override
+  void dispose(){
+    emailTextEditingController.dispose();
+    passwordTextEditingController.dispose();
+    super.dispose();
+  }
   final FirebaseAuth _firebaseAuth=FirebaseAuth.instance;
   void loginAndAuthenticateUser(BuildContext context) async {
-
     showDialog(
       context:context,
       barrierDismissible: false,
@@ -150,7 +190,7 @@ class LoginScreeen extends StatelessWidget {
     );
 
     final User firebaseUser=(await _firebaseAuth
-   .signInWithEmailAndPassword(
+    .signInWithEmailAndPassword(
       email: emailTextEditingController.text,
       password: passwordTextEditingController.text,
       ).catchError((errMsg){
@@ -173,9 +213,8 @@ class LoginScreeen extends StatelessWidget {
           });
       }
         else{
-         Navigator.pop(context);
+        Navigator.pop(context);
           displayToastMessage("Error! Cannot Sign in",context);
       }
-
   }
 }
