@@ -144,13 +144,13 @@ class RegisterScreen extends StatelessWidget {
                   else if(phoneTextEditingController.text.isEmpty){
                     displayToastMessage("Enter Phone Number",context);
                   }
-                   else if(passwordTextEditingController.text.length <9){
+                  else if(passwordTextEditingController.text.length <9){
                     displayToastMessage("Password must be at least 8 characters",context);
                   }
                   else{
-                     registerNewUser(context);
+                    registerNewUser(context);
                   }
-                 
+                
                 },
                 child: Text(
                 "Create Account",
@@ -193,19 +193,19 @@ class RegisterScreen extends StatelessWidget {
        if(firebaseUser!=null) //user created
         {
          //save info
-         
-         Map userDataMap={
-           "name" : nameTextEditingController.text.trim(),
-           "email" : emailTextEditingController.text.trim(),
-           "phone": phoneTextEditingController.text.trim(),
-         };
-         usersRef.child(firebaseUser.uid).set(userDataMap);
-         displayToastMessage("Congratulations 🎉", context);
-         History.pushPageReplacement(context, MainScreen());
+          
+          Map userDataMap={
+          "name" : nameTextEditingController.text.trim(),
+          "email" : emailTextEditingController.text.trim(),
+          "phone": phoneTextEditingController.text.trim(),
+        };
+          usersRef.child(firebaseUser.uid).set(userDataMap);
+          displayToastMessage("Congratulations 🎉", context);
+          History.pushPageReplacement(context, MainScreen());
       }
-       else{
+        else{
          // error
-         displayToastMessage("New User account has not craeted ",context);
+          displayToastMessage("New User account has not created ",context);
       }
   }
 }
