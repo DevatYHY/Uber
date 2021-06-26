@@ -8,27 +8,32 @@ class GetStartedscreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blue,
       
-        body: Container(
-          alignment: Alignment.center,
-          padding: const EdgeInsets.only(
-          left: 55,
-          top: 50,
-          right: 50,
-          bottom: 60,
-        ),
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Center(child: buildTitle()),
-                SizedBox(height: 20.0),
-                Expanded(child: buildContent(),),
-                Center(child: buildBottom(context)),
-              ],
-            ),
-          )
+        body: Center(
+          child: Container(
+            alignment: Alignment.center,
+            padding: const EdgeInsets.only(
+            left: 55,
+            top: 50,
+            right: 50,
+            bottom: 60,
+          ),
+            child: Center(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+
+                children: [
+                  Center(child: buildTitle()),
+                  //SizedBox(height: 20.0),
+                  Center(child: buildContent(),),
+                  Expanded(child: Center(child: buildMiddle())),
+                  SizedBox(height: 10.0),
+                  Center(child: buildBottom(context)),
+                ],
+              ),
+            )
+          ),
         ),
     );
   }
@@ -37,24 +42,34 @@ class GetStartedscreen extends StatelessWidget {
      style: TextStyle(
           fontSize: 50.0,
           fontFamily: "Uber Move",
-          color: Colors.black,
+          color: Colors.white,
           //fontWeight: FontWeight.w100,
           letterSpacing: 2.0,
         ),);
   }
   Widget buildContent(){
     return Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          SingleChildScrollView(
-            child: Image(
-            image:AssetImage("images/hero.png"),  
-            alignment: Alignment.centerRight,
+            Center(
+              child: Image(
+                fit:BoxFit.fill,
+              image:AssetImage("images/hero.png"),  
+              alignment: Alignment.centerRight,
+              ),
             ),
-          ),
       ],
-      
     );
+  }
+   Widget buildMiddle(){
+    return Text("Move With Safety",
+     style: TextStyle(
+          fontSize: 30.0,
+          fontFamily: "Uber Move",
+          color: Colors.white,
+          //fontWeight: FontWeight.w100,
+          letterSpacing: 2.0,
+        ),);
   }
 
   Widget buildBottom(BuildContext context){
@@ -73,7 +88,7 @@ class GetStartedscreen extends StatelessWidget {
                 Text('Get Started   ➡',style: TextStyle(
                   color: Colors.white,
                   fontFamily: "Uber Move",
-                  fontSize: 15,
+                  fontSize: 18,
                 )),
               ],
             ),
