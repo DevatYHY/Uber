@@ -16,16 +16,6 @@ DatabaseReference usersRef=FirebaseDatabase.instance.reference().child("users");
 //  String finalEmail;
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-
-  // Future getValidationData() async{
-  //   final SharedPreferences sharedPreferences=await SharedPreferences.getInstance();
-  //   var obtainEmail=sharedPreferences.getString('email');
-  //   setState((){
-  //     finalEmail= obtainEmail;
-  //   });
-  //   print(finalEmail);
-  // }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -48,7 +38,7 @@ class MyApp extends StatelessWidget {
           letterSpacing: 2.0,
         ),
         ),
-          nextScreen: GetStartedscreen(),
+          nextScreen: MainScreen(),
           splashTransition: SplashTransition.fadeTransition,
         backgroundColor: Colors.black,
           duration: 3000,

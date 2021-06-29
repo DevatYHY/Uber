@@ -114,9 +114,6 @@ class _LoginScreeenState extends State<LoginScreeen> {
               RectangleButton(
                 color: Colors.black,
                 onPressed:() async{
-                // final SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
-                // sharedPreferences.setString('email',emailTextEditingController.text);
-                // Get.to(MainScreen());
                 String email= emailTextEditingController.text;
                 String password= passwordTextEditingController.text;
 
