@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
           letterSpacing: 2.0,
         ),
         ),
-          nextScreen: MainScreen(),
+          nextScreen: GetStartedscreen(),
           splashTransition: SplashTransition.fadeTransition,
         backgroundColor: Colors.black,
           duration: 3000,

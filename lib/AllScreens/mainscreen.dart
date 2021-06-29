@@ -66,6 +66,78 @@ class _MainScreenState extends State<MainScreen> {
               newGoogleMapController=controller;
             }
           ),
+          Positioned(
+            left: 0.0,
+            right: 0.0,
+            bottom: 0.0,
+            child: Container(height:320.0,
+            decoration:
+            BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(16.0),
+                topRight: Radius.circular(16.0),
+                ),
+                boxShadow:[
+              BoxShadow(
+                color: Colors. black,
+                blurRadius: 16.0,
+                spreadRadius: 5.0,
+                offset: Offset(0.7,0.7),
+              ),
+                ],
+              
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 18.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: 6.0),
+                  Text("Hello, ",style: 
+                  TextStyle(
+                    fontSize: 24.0,
+                    fontFamily: 'Uber Move'),),
+                  Text("Where to?",
+                  style:
+                    TextStyle(
+                    fontSize: 24.0,
+                    fontFamily: 'Uber Move',
+                    ),
+                    ),
+                    SizedBox(height: 20.0,),
+                    Container(
+                      decoration:
+                      BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(5.0),
+                        boxShadow:[
+                      BoxShadow(
+                        color: Colors. black54,
+                        blurRadius: 1.0,
+                        spreadRadius: 1.0,
+                        offset: Offset(0.2,0.2),
+                      ),
+                        ],
+                      ),
+                      child: Row(
+                        children:[
+                          SizedBox(width:7.0),
+                        Icon(Icons.search
+                        ,color: Colors.black26,),
+                        SizedBox(width: 10.0,),
+                        Text("Search Destination", 
+                        style: TextStyle(
+                          fontFamily: "Uber Move",
+                          fontSize: 20.0,
+                        ),),
+                      ],),
+                    ),
+                ],
+              ),
+            ),
+            ),
+          ),
         ],
       ),
 
