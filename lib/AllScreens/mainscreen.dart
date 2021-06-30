@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uber/AllScreens/divider.dart';
 import 'package:uber/AllScreens/loginscreen.dart';
 import 'package:uber/util/history.dart';
 import 'package:uber/widgets/rectangle_button.dart';
@@ -120,19 +121,74 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                         ],
                       ),
-                      child: Row(
-                        children:[
-                          SizedBox(width:7.0),
-                        Icon(Icons.search
-                        ,color: Colors.black26,),
-                        SizedBox(width: 10.0,),
-                        Text("Search Destination", 
+                      child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          children:[
+                            SizedBox(width:7.0),
+                          Icon(Icons.search
+                          ,color: Colors.black26,),
+                          SizedBox(width: 10.0,),
+                          Text("Search Destination", 
+                          style: TextStyle(
+                            fontFamily: "Uber Move",
+                            fontSize: 20.0,
+                          ),),
+                          
+                        ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 25.0),
+                    Row(
+                      children:[
+                        Icon(Icons.work, color: Colors.grey,),
+                        SizedBox(width: 12.0,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:[
+                            Text("Add Work",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontFamily: "Uber Move",
+                            ),
+                            ),
+                            SizedBox(height: 5.0,),
+                        Text("Add your Work address", 
                         style: TextStyle(
                           fontFamily: "Uber Move",
-                          fontSize: 20.0,
+                          fontSize: 14.0,
+                          color: Colors.black54,
                         ),),
+                          ],
+                        )
                       ],),
-                    ),
+                      SizedBox(height: 10.0,),
+                      DividerWidget(),
+                      SizedBox(height: 16.0,),
+                      Row(
+                      children:[
+                        Icon(Icons.home, color: Colors.grey,),
+                        SizedBox(width: 12.0,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:[
+                            Text("Add Home",
+                            style: TextStyle(
+                              fontSize: 18.0,
+                              fontFamily: "Uber Move",
+                            ),
+                            ),
+                            SizedBox(height: 5.0,),
+                        Text("Add your Home address", 
+                        style: TextStyle(
+                          fontFamily: "Uber Move",
+                          fontSize: 14.0,
+                          color: Colors.black54,
+                        ),),
+                          ],
+                        )
+                      ],),
                 ],
               ),
             ),

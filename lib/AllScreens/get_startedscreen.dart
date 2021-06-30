@@ -38,7 +38,7 @@ class GetStartedscreen extends StatelessWidget {
   Widget buildTitle(){
     return Text("Uber",
      style: TextStyle(
-          fontSize: 50.0,
+          fontSize: 70.0,
           fontFamily: "Uber Move",
           color: Colors.white,
           //fontWeight: FontWeight.w100,
