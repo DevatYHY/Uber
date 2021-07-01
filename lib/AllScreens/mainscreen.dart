@@ -21,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
   GoogleMapController newGoogleMapController;
 
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(37.42796133580664, -122.085749655962),
+    target: LatLng(22.572645, 88.363892),
     zoom: 14.4746,
   );
   SharedPreferences logindata;
@@ -47,8 +47,42 @@ class _MainScreenState extends State<MainScreen> {
           'Uber, Ride safe',
           ),
       ),
+      drawer: Drawer(
+    child: ListView(
+      padding: EdgeInsets.zero,
+      children: const <Widget>[
+        DrawerHeader(
+          decoration: BoxDecoration(
+            color: Colors.black,
+          ),
+            child: CircleAvatar(
+              backgroundImage: AssetImage('images/profile.jpg'),
+              radius: 30.0,
+            ),
+        ),
 
-
+        SizedBox(height: 12.0,),
+        ListTile(
+              leading: Icon(Icons.car_rental),
+              title: Text("Your Trips",
+              style: TextStyle(
+                fontFamily: "Uber Move", fontSize:12.0,)),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Visit Profile",
+              style: TextStyle(
+                fontFamily: "Uber Move", fontSize:12.0,)),
+            ),
+            ListTile(
+              leading: Icon(Icons.info),
+              title: Text("About",
+              style: TextStyle(
+                fontFamily: "Uber Move", fontSize:12.0,)),
+            ),
+      ],
+    ),
+  ),
       // body: RectangleButton(
       //   onPressed:(){
       //     logindata.setBool('login', true);
@@ -56,6 +90,41 @@ class _MainScreenState extends State<MainScreen> {
       //   },
       //   child: Text('Log out'),
       // ),
+      // drawer: Container(
+      //   color: Colors.white,
+      //   width:255.0,
+      //   child: Drawer(
+        // drawer: Drawer(
+        //   child: ListView(
+        //     children: [
+        //       //Drawer Header
+        //       Container(
+        //         height: 165.0,
+        //         child: DrawerHeader(
+        //           decoration:BoxDecoration(
+        //             color: Colors.black,
+        //           ),
+        //           child: Row(children:[
+        //             Image.asset("images/user_icon.png",height: 65.0, width: 65.0),
+        //             SizedBox(width: 65.0,),
+        //             Column(
+        //               mainAxisAlignment: MainAxisAlignment.center,
+        //               children: [
+        //                 Text("Profile Name",
+        //                 style:TextStyle(
+        //                   fontFamily: "Uber Move",
+        //                   fontSize: 14.0,
+        //                 ),),
+        //                 SizedBox(height: 12.0,),
+        //                 Text("Vidit Profile"),
+        //               ],
+        //             ),
+        //           ],),
+        //         )
+        //       ),
+        //       DividerWidget(),
+        //     SizedBox(height: 12.0,),
+        //     //Drawer Body Controllers
       body: Stack(
         children: [
           GoogleMap(
@@ -67,6 +136,7 @@ class _MainScreenState extends State<MainScreen> {
               newGoogleMapController=controller;
             }
           ),
+          
           Positioned(
             left: 0.0,
             right: 0.0,
