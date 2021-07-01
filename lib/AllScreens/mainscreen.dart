@@ -7,15 +7,12 @@ import 'package:uber/AllScreens/divider.dart';
 import 'package:uber/AllScreens/loginscreen.dart';
 import 'package:uber/util/history.dart';
 import 'package:uber/widgets/rectangle_button.dart';
-
 class MainScreen extends StatefulWidget {
   // const MainScreen({ Key? key }) : super(key: key);
 static const String idScreen="MainScreen";
   @override
   _MainScreenState createState() => _MainScreenState();
 }
-
-
 class _MainScreenState extends State<MainScreen> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   GoogleMapController newGoogleMapController;
@@ -43,87 +40,75 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.black,
         title: Text(
           'Uber, Ride safe',
+          style: TextStyle(
+            fontFamily:"Uber Move",
+          ),
           ),
       ),
       drawer: Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children: const <Widget>[
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.black,
-          ),
-            child: CircleAvatar(
-              backgroundImage: AssetImage('images/profile.jpg'),
-              radius: 30.0,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Flexible(
+          
+            child: ListView(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              children: const <Widget>[
+                DrawerHeader(
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                  ),
+                    child: CircleAvatar(
+                      backgroundImage: AssetImage('images/profile1.jpg'),
+                      radius: 30.0,
+                    ),
+                  
+                ),
+                
+                SizedBox(height: 12.0,),
+                ListTile(
+                      leading: Icon(Icons.person,color: Colors.black,),
+                      title: Text("Archishman Sengupta",
+                      style: TextStyle(
+                        fontFamily: "Uber Move", fontSize:16.0,)),
+                    ),
+                ListTile(
+                      leading: Icon(Icons.car_rental,color: Colors.black,),
+                      title: Text("Your Trips",
+                      style: TextStyle(
+                        fontFamily: "Uber Move", fontSize:16.0,)),
+                    ),
+                    
+                    ListTile(
+                      leading: Icon(Icons.help,color: Colors.black,),
+                      title: Text("Help",
+                      style: TextStyle(
+                        fontFamily: "Uber Move", fontSize:16.0,)),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.money,color: Colors.black,),
+                      title: Text("Wallet",
+                      style: TextStyle(
+                        fontFamily: "Uber Move", fontSize:16.0,)),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.settings,color: Colors.black,),
+                      title: Text("Settings",
+                      style: TextStyle(
+                        fontFamily: "Uber Move", fontSize:16.0,)),
+                    ),
+              ],
             ),
+          
         ),
-
-        SizedBox(height: 12.0,),
-        ListTile(
-              leading: Icon(Icons.car_rental),
-              title: Text("Your Trips",
-              style: TextStyle(
-                fontFamily: "Uber Move", fontSize:12.0,)),
-            ),
-            ListTile(
-              leading: Icon(Icons.person),
-              title: Text("Visit Profile",
-              style: TextStyle(
-                fontFamily: "Uber Move", fontSize:12.0,)),
-            ),
-            ListTile(
-              leading: Icon(Icons.info),
-              title: Text("About",
-              style: TextStyle(
-                fontFamily: "Uber Move", fontSize:12.0,)),
-            ),
       ],
     ),
   ),
-      // body: RectangleButton(
-      //   onPressed:(){
-      //     logindata.setBool('login', true);
-      //     History.pushPageReplacement(context, LoginScreeen());
-      //   },
-      //   child: Text('Log out'),
-      // ),
-      // drawer: Container(
-      //   color: Colors.white,
-      //   width:255.0,
-      //   child: Drawer(
-        // drawer: Drawer(
-        //   child: ListView(
-        //     children: [
-        //       //Drawer Header
-        //       Container(
-        //         height: 165.0,
-        //         child: DrawerHeader(
-        //           decoration:BoxDecoration(
-        //             color: Colors.black,
-        //           ),
-        //           child: Row(children:[
-        //             Image.asset("images/user_icon.png",height: 65.0, width: 65.0),
-        //             SizedBox(width: 65.0,),
-        //             Column(
-        //               mainAxisAlignment: MainAxisAlignment.center,
-        //               children: [
-        //                 Text("Profile Name",
-        //                 style:TextStyle(
-        //                   fontFamily: "Uber Move",
-        //                   fontSize: 14.0,
-        //                 ),),
-        //                 SizedBox(height: 12.0,),
-        //                 Text("Vidit Profile"),
-        //               ],
-        //             ),
-        //           ],),
-        //         )
-        //       ),
-        //       DividerWidget(),
-        //     SizedBox(height: 12.0,),
+      
         //     //Drawer Body Controllers
       body: Stack(
         children: [
@@ -194,6 +179,7 @@ class _MainScreenState extends State<MainScreen> {
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
                         child: Row(
+                          
                           children:[
                             SizedBox(width:7.0),
                           Icon(Icons.search

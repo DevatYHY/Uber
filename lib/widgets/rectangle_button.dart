@@ -20,7 +20,7 @@ class RectangleButton extends StatelessWidget {
     this.color,
     this.disabledColor,
     this.padding = const EdgeInsets.symmetric(
-      vertical: 20,
+      vertical: 13,
       horizontal: 80,
     ),
     this.onPressed,
