@@ -23,12 +23,14 @@ class _MainScreenState extends State<MainScreen> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   GoogleMapController newGoogleMapController;
 
-  Positioned currentPosition; //Method
+  double BottomPaddingMap=0; 
+
+  Positioned _currentPosition; //Method
   var geoLocator= Geolocator();
 
+
   void locatePosition() async{
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    currentPosition = position as Positioned;
+    Position position = await Geolocator.getCurrentPosition(forceAndroidLocationManager: true,desiredAccuracy: LocationAccuracy.best);
     LatLng latLatPosition =LatLng(position.latitude, position.longitude);
     CameraPosition camPosition =new CameraPosition(target: latLatPosition, zoom:15);
     newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(camPosition));
@@ -130,6 +132,7 @@ class _MainScreenState extends State<MainScreen> {
       body: Stack(
         children: [
           GoogleMap(
+            padding: EdgeInsets.only(bottom: BottomPaddingMap),
             mapType: MapType.normal,
             myLocationButtonEnabled: true,
             initialCameraPosition: _kGooglePlex,
@@ -140,6 +143,10 @@ class _MainScreenState extends State<MainScreen> {
               _controllerGoogleMap.complete(controller);
               newGoogleMapController=controller;
 
+              setState(() {
+                BottomPaddingMap=264.0;
+              });
+
               locatePosition();
             }
           ),
@@ -148,7 +155,7 @@ class _MainScreenState extends State<MainScreen> {
             left: 0.0,
             right: 0.0,
             bottom: 0.0,
-            child: Container(height:320.0,
+            child: Container(height:290.0,
             decoration:
             BoxDecoration(
               color: Colors.white,
