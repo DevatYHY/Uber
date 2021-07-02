@@ -7,15 +7,32 @@ import 'package:uber/AllScreens/divider.dart';
 import 'package:uber/AllScreens/loginscreen.dart';
 import 'package:uber/util/history.dart';
 import 'package:uber/widgets/rectangle_button.dart';
+import 'package:geolocator/geolocator.dart';
 class MainScreen extends StatefulWidget {
   // const MainScreen({ Key? key }) : super(key: key);
 static const String idScreen="MainScreen";
   @override
-  _MainScreenState createState() => _MainScreenState();
+  var state= _MainScreenState();
+  //_MainScreenState createState() => new _MainScreenState();
+  _MainScreenState createState(){
+return this.state=new _MainScreenState();
+}
+  
 }
 class _MainScreenState extends State<MainScreen> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   GoogleMapController newGoogleMapController;
+
+  Positioned currentPosition; //Method
+  var geoLocator= Geolocator();
+
+  void locatePosition() async{
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position as Positioned;
+    LatLng latLatPosition =LatLng(position.latitude, position.longitude);
+    CameraPosition camPosition =new CameraPosition(target: latLatPosition, zoom:15);
+    newGoogleMapController.animateCamera(CameraUpdate.newCameraPosition(camPosition));
+  }
 
   static final CameraPosition _kGooglePlex = CameraPosition(
     target: LatLng(22.572645, 88.363892),
@@ -119,6 +136,8 @@ class _MainScreenState extends State<MainScreen> {
             onMapCreated: (GoogleMapController controller){
               _controllerGoogleMap.complete(controller);
               newGoogleMapController=controller;
+
+              locatePosition();
             }
           ),
           
