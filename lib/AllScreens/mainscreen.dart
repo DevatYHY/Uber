@@ -133,6 +133,9 @@ class _MainScreenState extends State<MainScreen> {
             mapType: MapType.normal,
             myLocationButtonEnabled: true,
             initialCameraPosition: _kGooglePlex,
+            myLocationEnabled: true,
+            zoomGesturesEnabled: true,
+            zoomControlsEnabled: true,
             onMapCreated: (GoogleMapController controller){
               _controllerGoogleMap.complete(controller);
               newGoogleMapController=controller;
