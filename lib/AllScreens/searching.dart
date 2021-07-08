@@ -119,13 +119,14 @@ class _SearchScreenState extends State<SearchScreen> {
                 Padding(
                   padding: EdgeInsets.only(left:13.0),
                 ),
-                Icon(Icons.star),
+                Icon(Icons.star,color: Colors.grey[500],),
                 SizedBox(width:5.0),
                 Text("Saved Places",style:TextStyle(fontFamily:"Uber Move",fontSize:24.0) ),
                 
               ],
             ),
             SizedBox(height:10.0),
+            Divider(),
             Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -134,12 +135,28 @@ class _SearchScreenState extends State<SearchScreen> {
                 Padding(
                   padding: EdgeInsets.only(left:13.0),
                 ),
-                Icon(Icons.location_pin),
+                Icon(Icons.location_pin,color: Colors.grey[500],),
                 SizedBox(width:5.0),
                 Text("Set Location on Map",style:TextStyle(fontFamily:"Uber Move",fontSize:24.0) ),
                 
               ],
             ),
+            SizedBox(height:10.0),
+            Divider(),
+            Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left:13.0),
+                ),
+                Icon(Icons.play_arrow,color: Colors.grey[500],),
+                SizedBox(width:5.0),
+                Text("Enter Destination Later",style:TextStyle(fontFamily:"Uber Move",fontSize:24.0) ),
+              ],
+            ),
+            Divider(),
             ],
           ),
           
