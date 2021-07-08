@@ -6,7 +6,6 @@ Uber Technologies, Inc., commonly known as Uber, is an American technology compa
 
 ## Technologies Used
   👉 Flutter <br>
-  👉 Firebase
   👉 Firebase <br>
   👉 Google Cloud Platform for Google Maps API
 
@@ -21,3 +20,6 @@ Uber Technologies, Inc., commonly known as Uber, is an American technology compa
 ![2](https://user-images.githubusercontent.com/71402528/124293738-98223500-db74-11eb-956f-96074168146e.png)
 ## Landing Page and Drawer
 ![3](https://user-images.githubusercontent.com/71402528/124293841-b25c1300-db74-11eb-9a1b-f7ac9596f29f.png)
+## Pickup and Destination Search Page
+![4](https://user-images.githubusercontent.com/71402528/124977106-b80e9880-e04d-11eb-9eff-07a4e5baed67.png)
+
