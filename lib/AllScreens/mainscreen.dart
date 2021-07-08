@@ -5,6 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uber/AllScreens/divider.dart';
 import 'package:uber/AllScreens/loginscreen.dart';
+import 'package:uber/AllScreens/searching.dart';
 import 'package:uber/util/history.dart';
 import 'package:uber/widgets/rectangle_button.dart';
 import 'package:geolocator/geolocator.dart';
@@ -144,7 +145,7 @@ class _MainScreenState extends State<MainScreen> {
               newGoogleMapController=controller;
 
               setState(() {
-                BottomPaddingMap=264.0;
+                BottomPaddingMap=265.0;
               });
 
               locatePosition();
@@ -155,7 +156,7 @@ class _MainScreenState extends State<MainScreen> {
             left: 0.0,
             right: 0.0,
             bottom: 0.0,
-            child: Container(height:290.0,
+            child: Container(height:320.0,
             decoration:
             BoxDecoration(
               color: Colors.white,
@@ -191,36 +192,41 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                     ),
                     SizedBox(height: 20.0,),
-                    Container(
-                      decoration:
-                      BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5.0),
-                        boxShadow:[
-                      BoxShadow(
-                        color: Colors. black54,
-                        blurRadius: 1.0,
-                        spreadRadius: 1.0,
-                        offset: Offset(0.2,0.2),
-                      ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                          
-                          children:[
-                            SizedBox(width:7.0),
-                          Icon(Icons.search
-                          ,color: Colors.black26,),
-                          SizedBox(width: 10.0,),
-                          Text("Search Destination", 
-                          style: TextStyle(
-                            fontFamily: "Uber Move",
-                            fontSize: 20.0,
-                          ),),
-                          
-                        ],
+                    GestureDetector(
+                      onTap:(){
+                        History.pushPageReplacement(context, SearchScreen());
+                      },
+                      child: Container(
+                        decoration:
+                        BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(5.0),
+                          boxShadow:[
+                        BoxShadow(
+                          color: Colors. black54,
+                          blurRadius: 1.0,
+                          spreadRadius: 1.0,
+                          offset: Offset(0.2,0.2),
+                        ),
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Row(
+                            
+                            children:[
+                              SizedBox(width:7.0),
+                            Icon(Icons.search
+                            ,color: Colors.black26,),
+                            SizedBox(width: 10.0,),
+                            Text("Search Destination", 
+                            style: TextStyle(
+                              fontFamily: "Uber Move",
+                              fontSize: 20.0,
+                            ),),
+                            
+                          ],
+                          ),
                         ),
                       ),
                     ),
