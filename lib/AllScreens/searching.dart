@@ -55,7 +55,54 @@ class _SearchScreenState extends State<SearchScreen> {
                 Row(children:[
                   Icon(Icons.location_pin),
                   SizedBox(height:18.0),
-                  //Expanded()  
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                      child:Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child:TextField(
+                          decoration:InputDecoration(
+                            hintText: "Enter Pickup Location",
+                            fillColor: Colors.grey[100],
+                            filled:true,
+                            border: InputBorder.none,
+                            isDense: true,
+                            contentPadding: EdgeInsets.only(left: 11.0,top:8.0,bottom:8.0)
+                          )
+                        )
+                      )
+                    )
+                  )  
+                ],
+                ),
+                SizedBox(height:16.0),
+                Row(children:[
+                  Icon(Icons.crop_square),
+                  SizedBox(height:18.0),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(4.0),
+                      ),
+                      child:Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child:TextField(
+                          decoration:InputDecoration(
+                            hintText: "Where to?",
+                            fillColor: Colors.grey[100],
+                            filled:true,
+                            border: InputBorder.none,
+                            isDense: true,
+                            contentPadding: EdgeInsets.only(left: 11.0,top:8.0,bottom:8.0)
+                          )
+                        )
+                      )
+                    )
+                  )  
                 ],
                 )
               ]) ,
