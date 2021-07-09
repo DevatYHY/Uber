@@ -3,6 +3,11 @@
 <img src="https://avatars.githubusercontent.com/u/538264?s=200&v=4" />
 Uber Technologies, Inc., commonly known as Uber, is an American technology company. Its services include ride-hailing, food delivery (Uber Eats), package delivery, couriers, freight transportation, and, through a partnership with Lime, electric bicycle and motorized scooter rental. The company is based in San Francisco and has operations in over 900 metropolitan areas worldwide. It is one of the largest firms in the gig economy.
 @@ -7,6 +8,18 @@ More about them [here](https://en.wikipedia.org/wiki/Uber)
+<br><br>
+
+
+![ezgif-4-812d0a3a16f0](https://user-images.githubusercontent.com/71402528/125104120-a9ca8600-e0fa-11eb-9eab-a17e9ad846ed.gif)
+
 
 ## Technologies Used
   👉 Flutter <br>
