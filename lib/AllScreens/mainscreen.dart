@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,17 +17,13 @@ static const String idScreen="MainScreen";
   _MainScreenState createState(){
 return this.state=new _MainScreenState();
 }
-  
 }
 class _MainScreenState extends State<MainScreen> {
   Completer<GoogleMapController> _controllerGoogleMap = Completer();
   GoogleMapController newGoogleMapController;
-
   double BottomPaddingMap=0; 
-
   Positioned _currentPosition; //Method
   var geoLocator= Geolocator();
-
 
   void locatePosition() async{
     Position position = await Geolocator.getCurrentPosition(forceAndroidLocationManager: true,desiredAccuracy: LocationAccuracy.best);

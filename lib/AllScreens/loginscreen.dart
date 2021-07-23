@@ -46,22 +46,36 @@ class _LoginScreeenState extends State<LoginScreeen> {
                 padding: const EdgeInsets.all(8.0),
                 child: Image(
                 image: AssetImage("images/logo_main.png"), 
-                width: 200.0, 
-                height: 200.0, 
+                width: 100.0, 
+                height: 100.0, 
                 alignment: Alignment.centerRight,
                 ),
               ),
               ),
               SizedBox(height: 20.0,),
-              Text('Login as Rider', 
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[ 
+                  Text('  Let\'s Log you in', 
+                  style: TextStyle(
+                  fontSize: 30.0,
+                  fontFamily: "Uber Move",
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.right,
+                ),
+                Text(' .', 
               style: TextStyle(
-                fontSize: 24.0,
+                fontSize: 40.0,
                 fontFamily: "Uber Move",
                 fontWeight: FontWeight.bold,
               ),
               textAlign: TextAlign.center,
               ),
-      
+                ],
+              ),
+                SizedBox(height: 80.0,),
               // Email
       
               Padding(
@@ -75,16 +89,19 @@ class _LoginScreeenState extends State<LoginScreeen> {
                   labelText: "Email",
                   labelStyle: TextStyle(
                     fontSize: 20.0,
+                    fontFamily: "Uber Move",
                   ),
                   hintText: "Email",
                   icon: Icon(Icons.email),
                   hintStyle: TextStyle(
-                    fontSize: 12.0,
+                    fontSize: 16.0,
+                    fontFamily: "Uber Move",
                     color: Colors.grey,
                   ),
                 ),
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 18.0,
+                  fontFamily: "Uber Move",
                 )
               ),
       
@@ -98,19 +115,22 @@ class _LoginScreeenState extends State<LoginScreeen> {
                   labelText: "Password",
                   labelStyle: TextStyle(
                     fontSize: 20.0,
+                    fontFamily: "Uber Move",
                   ),
                   hintText: "Password",
                   icon: Icon(Icons.lock),
                   hintStyle: TextStyle(
                     fontSize: 16.0,
+                    fontFamily: "Uber Move",
                     color: Colors.grey,
                   ),
                 ),
                 style: TextStyle(
-                  fontSize: 12.0,
+                  fontSize: 18.0,
+                  fontFamily: "Uber Move",
                 )
               ),
-              SizedBox(height: 150.0),
+              SizedBox(height: 100.0),
               RectangleButton(
                 color: Colors.black,
                 onPressed:() async{
@@ -137,7 +157,7 @@ class _LoginScreeenState extends State<LoginScreeen> {
                 "Login",
                 style: TextStyle(
                   fontFamily: "Uber Move",
-                  fontSize: 14.0,
+                  fontSize: 18.0,
                   color: Colors.white,
                 ),
               ),  

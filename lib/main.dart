@@ -26,10 +26,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: AnimatedSplashScreen(
-          
-          // splash: Image.asset(
-          //   'images/black_logo.png',
-          //   ),
           splash: Text('Uber', style: TextStyle(
             fontSize: 50.0,
             fontFamily: "Uber Move",
