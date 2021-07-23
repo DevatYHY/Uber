@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uber/AllScreens/mainscreen.dart';
+import 'package:uber/util/history.dart';
 class SearchScreen extends StatefulWidget {
   
 
@@ -7,8 +9,14 @@ class SearchScreen extends StatefulWidget {
 }
 
 class _SearchScreenState extends State<SearchScreen> {
+
+
+  TextEditingController pickupTextEditingController;
+  TextEditingController destinationTextEditingController;
   @override
   Widget build(BuildContext context) {
+
+    //String placeAddress =Provider.of<AppData>(context).pickuplocation.placeName ??;
     return Scaffold(
       body: Column(
         children: [
@@ -30,7 +38,11 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Column(children:[
                 SizedBox(height:5.0),
                 Stack(children:[
-                  Icon(Icons.arrow_back),
+                  GestureDetector(
+                    onTap:(){
+                      History.pushPageReplacement(context, MainScreen());
+                    },
+                    child: Icon(Icons.arrow_back)),
                   Center(
                     child: 
                     Row(
@@ -38,22 +50,35 @@ class _SearchScreenState extends State<SearchScreen> {
                       children:[
                         CircleAvatar(
                           backgroundImage: AssetImage("images/profile1.jpg"),
-                          radius: 12,
+                          radius: 15,
                         ),
                         SizedBox(width:4),
                         
                         Text("For Me", 
                         style: TextStyle(fontFamily:"Uber Move",fontSize:12.0)
                       ),
-                      Icon(Icons.arrow_drop_down),
+                    GestureDetector (
+                      onTap:(){
+                        History.pushPageReplacement(context,MainScreen());
+                      },
+                      child:
+                         Icon(Icons.arrow_drop_down)),
+                      
                       ],
                     ),
                   ),
                 ],
                 ),
                 SizedBox(height:16.0),
-                Row(children:[
-                  Icon(Icons.location_pin),
+                Row(
+                  children:[
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pop(context);
+                    },
+                    child: Icon(
+                      Icons.location_pin),
+                  ),
                   SizedBox(height:18.0),
                   Expanded(
                     child: Container(
@@ -75,7 +100,9 @@ class _SearchScreenState extends State<SearchScreen> {
                         )
                       )
                     )
-                  )  
+                  ),
+                  SizedBox(width: 5.0),
+                  Icon(Icons.location_city), 
                 ],
                 ),
                 SizedBox(height:16.0),
@@ -92,7 +119,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         padding: const EdgeInsets.all(5.0),
                         child:TextField(
                           decoration:InputDecoration(
-                            hintText: "Where to?",
+                            hintText: "Enter Destination",
                             fillColor: Colors.grey[100],
                             filled:true,
                             border: InputBorder.none,
@@ -102,9 +129,12 @@ class _SearchScreenState extends State<SearchScreen> {
                         )
                       )
                     )
-                  )  
+                  ) ,
+                  SizedBox(width: 5.0),
+                  Icon(Icons.add),
                 ],
-                )
+                ),
+                
               ]) ,
             ),
           ),
