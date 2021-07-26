@@ -62,7 +62,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         History.pushPageReplacement(context,MainScreen());
                       },
                       child:
-                         Icon(Icons.arrow_drop_down)),
+                        Icon(Icons.arrow_drop_down)),
                       
                       ],
                     ),

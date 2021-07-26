@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:uber/AllScreens/divider.dart';
+import 'package:uber/AllScreens/gotoScreen.dart';
 import 'package:uber/AllScreens/loginscreen.dart';
 import 'package:uber/AllScreens/searching.dart';
 import 'package:uber/util/history.dart';
@@ -64,63 +65,77 @@ class _MainScreenState extends State<MainScreen> {
           ),
       ),
       drawer: Drawer(
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Flexible(
-          
-            child: ListView(
-              shrinkWrap: true,
-              padding: EdgeInsets.zero,
-              children: const <Widget>[
-                DrawerHeader(
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                  ),
-                    child: CircleAvatar(
-                      backgroundImage: AssetImage('images/profile1.jpg'),
-                      radius: 30.0,
+    child: Material(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: <Widget>[
+          Flexible(
+            
+              child: ListView(
+                shrinkWrap: true,
+                padding: EdgeInsets.zero,
+                children: <Widget>[
+                  DrawerHeader(
+                    decoration: BoxDecoration(
+                      color: Colors.black,
                     ),
-                  
-                ),
-                
-                SizedBox(height: 12.0,),
-                ListTile(
-                      leading: Icon(Icons.person,color: Colors.black,),
-                      title: Text("Archishman Sengupta",
-                      style: TextStyle(
-                        fontFamily: "Uber Move", fontSize:16.0,)),
-                    ),
-                ListTile(
-                      leading: Icon(Icons.car_rental,color: Colors.black,),
-                      title: Text("Your Trips",
-                      style: TextStyle(
-                        fontFamily: "Uber Move", fontSize:16.0,)),
-                    ),
+                      child: CircleAvatar(
+                        backgroundImage: AssetImage('images/profile1.jpg'),
+                        radius: 30.0,
+                      ),
                     
-                    ListTile(
-                      leading: Icon(Icons.help,color: Colors.black,),
-                      title: Text("Help",
-                      style: TextStyle(
-                        fontFamily: "Uber Move", fontSize:16.0,)),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.money,color: Colors.black,),
-                      title: Text("Wallet",
-                      style: TextStyle(
-                        fontFamily: "Uber Move", fontSize:16.0,)),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.settings,color: Colors.black,),
-                      title: Text("Settings",
-                      style: TextStyle(
-                        fontFamily: "Uber Move", fontSize:16.0,)),
-                    ),
-              ],
-            ),
-          
-        ),
-      ],
+                  ),
+                  
+                  SizedBox(height: 12.0,),
+                  ListTile(
+                        leading: Icon(Icons.person,
+                        color: Colors.black,
+                        ),
+                        title: Text(
+                          "Archishman Sengupta",
+                        style: TextStyle(
+                          fontFamily: "Uber Move", fontSize:16.0,),),
+                          // onTap:(){
+                          //   History.pushPageReplacement(context, GotoScreen())
+                          // },
+                          hoverColor: Colors.pink,
+                          onTap:(){
+                            History.pushPageReplacement(context, GotoScreen(),);
+                          },
+                          
+                      ),
+                      
+                  ListTile(
+                        leading: Icon(Icons.car_rental,color: Colors.black,),
+                        title: Text("Your Trips",
+                        style: TextStyle(
+                          fontFamily: "Uber Move", fontSize:16.0,)),
+                      ),
+                      
+                      ListTile(
+                        leading: Icon(Icons.help,color: Colors.black,),
+                        title: Text("Help",
+                        style: TextStyle(
+                          fontFamily: "Uber Move", fontSize:16.0,)),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.money,color: Colors.black,),
+                        title: Text("Wallet",
+                        style: TextStyle(
+                          fontFamily: "Uber Move", fontSize:16.0,)),
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.settings,color: Colors.black,),
+                        title: Text("Settings",
+                        style: TextStyle(
+                          fontFamily: "Uber Move", fontSize:16.0,)),
+                      ),
+                ],
+              ),
+            
+          ),
+        ],
+      ),
     ),
   ),
       
